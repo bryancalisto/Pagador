@@ -80,7 +80,7 @@ public class RolDePagos {
             return false;
         }
         catch(Exception ex){
-            return true;
+            return false;
         }
     }
     
@@ -141,11 +141,15 @@ public class RolDePagos {
     }
     
     public boolean cargarValoresMensuales(String hExtra50, String hExtra100, String multas, String anticipos, String comisiones){
+        multas = multas.replace(',','.');   // Se reemplaza ',' por '.'.
+        anticipos = anticipos.replace(',','.');
+        comisiones = comisiones.replace(',','.');
+        
         
         try{
             this.horasExtra50 = Integer.parseInt(hExtra50.equals("")? "0": hExtra50);
             this.horasExtra100 = Integer.parseInt(hExtra100.equals("")? "0": hExtra100);
-            this.multas = Double.valueOf(multas.equals("")? "0": multas);
+            this.multas = Double.valueOf(multas.equals("")? "0": multas.replace(',','.')); 
             this.anticipos = Double.valueOf(anticipos.equals("")? "0": anticipos);
             this.comisiones = Double.valueOf(comisiones.equals("")? "0": comisiones);
             return true;

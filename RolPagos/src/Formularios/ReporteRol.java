@@ -10,6 +10,7 @@ import Clases.LimpiadorDeEntrada;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -62,6 +63,7 @@ public class ReporteRol extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaReporte = new javax.swing.JTable();
+        txtIngreseIdent1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -85,10 +87,12 @@ public class ReporteRol extends javax.swing.JFrame {
             }
         });
 
+        txtIngreseIdent.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         txtIngreseIdent.setText("Ingrese identificacion");
 
         cmbMesReporte.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
 
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel26.setText("Mes");
 
         jButton2.setText("Consultar");
@@ -121,11 +125,18 @@ public class ReporteRol extends javax.swing.JFrame {
             tablaReporte.getColumnModel().getColumn(5).setResizable(false);
         }
 
+        txtIngreseIdent1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtIngreseIdent1.setForeground(new java.awt.Color(255, 102, 0));
+        txtIngreseIdent1.setText("Reporte de Rol de Pagos");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(radTodos)
@@ -144,14 +155,17 @@ public class ReporteRol extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(jButton2)
                 .addGap(626, 626, 626))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtIngreseIdent1)
+                .addGap(700, 700, 700))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(81, 81, 81)
+                .addContainerGap()
+                .addComponent(txtIngreseIdent1)
+                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtIngreseIdent)
                     .addComponent(jLabel26))
@@ -183,9 +197,8 @@ public class ReporteRol extends javax.swing.JFrame {
         txbCedula.setVisible(false);
 
     }//GEN-LAST:event_radTodosActionPerformed
-
+    
     private void txbCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txbCedulaKeyTyped
-        // TODO add your handling code here:
         limpiador.limitarLargo(evt, txbCedula, 10);
     }//GEN-LAST:event_txbCedulaKeyTyped
 
@@ -343,5 +356,6 @@ public class ReporteRol extends javax.swing.JFrame {
     private javax.swing.JTable tablaReporte;
     private javax.swing.JTextField txbCedula;
     private javax.swing.JLabel txtIngreseIdent;
+    private javax.swing.JLabel txtIngreseIdent1;
     // End of variables declaration//GEN-END:variables
 }
